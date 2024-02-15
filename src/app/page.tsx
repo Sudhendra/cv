@@ -159,6 +159,26 @@ export default function Page() {
           })}
         </Section>
         <Section>
+          <h2 className="text-xl font-bold">Publications</h2>
+          {RESUME_DATA.publication.map((publication) => {
+            return (
+              <Card key={publication.title}>
+                <CardHeader>
+                  <div className="flex items-center justify-between gap-x-2 text-base">
+                    <h3 className="font-semibold leading-none">
+                      {publication.title}
+                    </h3>
+                    <div className="text-sm tabular-nums text-gray-500">
+                      {publication.date}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="mt-2">{publication.citation}</CardContent>
+              </Card>
+            );
+          })}
+        </Section>
+        <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
@@ -169,7 +189,7 @@ export default function Page() {
 
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
-          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-1">
             {RESUME_DATA.projects.map((project) => {
               return (
                 <ProjectCard
